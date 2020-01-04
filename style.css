@@ -1,0 +1,99 @@
+html, body {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+
+  background-image: url("./img/handmadepaper.png");
+  background-size: 100px 100px;
+  background-repeat: repeat;
+  background-position: top left;
+
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  html, body{
+    background-image: url('./img/handmadepaper_@2X.png');
+  }
+}
+
+#main {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 50px auto 50px;
+}
+
+#header {
+  /* background: rgba(255,0,0,.3); */
+  grid-column: 1 / 13;
+}
+
+#footer {
+  /* background: rgba(0,255,0,.3); */
+  grid-column: 1 / 13;
+}
+
+#content {
+  grid-column: 3 / 11;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 75%;
+  height: 75%;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.cards-container > li {
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+.cards-container > li .card-back,
+.cards-container > li .card-face {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  backface-visibility: hidden;
+  transform: rotateY(0deg);
+  transition: transform .3s;
+
+  border-radius: 5%;
+  box-shadow: 0 0 5px rgba(0,0,0,.5);
+}
+.cards-container > li .card-back {
+  transform: rotateY(180deg);
+}
+.cards-container > li .card-face i {
+  font-size: 2.5em;
+  display: block;
+}
+.cards-container > li .card-back i {
+  font-size: 3em;
+}
+.cards-container > li:hover .card-face {
+  transform: rotateY(180deg);
+}
+.cards-container > li:hover .card-back {
+  transform: rotateY(360deg);
+}
