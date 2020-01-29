@@ -8,7 +8,7 @@
     var pairs = [
       {id: "summary", icon: "user", title: "Summary"},
       {id: "education", icon: "graduation-cap", title: "Education"},
-      {id: "work", icon: "briefcase", title: "Work experience"},
+      {id: "work", icon: "briefcase", title: "Work"},
       {id: "projects", icon: "flask", title: "Projects"},
       {id: "skills", icon: "file-certificate", title: "Skills"},
       {id: "contacts", icon: "id-card", title: "Contacts"},
@@ -29,7 +29,7 @@
     });
 
     cards.forEach(function(card) {
-      var $card = $("<li>").addClass("card").appendTo($cardsContainer);
+      var $card = $("<li>").addClass("card").addClass("hidden").appendTo($cardsContainer);
       $("<div>")
         .addClass("card-face")
         .html("<i class=\"fad fa-" + card.icon + "\"></i> " + card.title)
@@ -38,6 +38,9 @@
         .addClass("card-back")
         .html("<i class=\"fad fa-sparkles\"></i>")
         .appendTo($card);
+      $card.on("click", function() {
+
+      });
     });
   });
 

@@ -1,3 +1,5 @@
+/* Hand made paper background image from Subtle Patterns. Made by Le Marquis. */
+
 html, body {
   box-sizing: border-box;
   height: 100%;
@@ -12,7 +14,13 @@ html, body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+@media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (   min--moz-device-pixel-ratio: 2),
+  only screen and (     -o-min-device-pixel-ratio: 2/1),
+  only screen and (        min-device-pixel-ratio: 2),
+  only screen and (                min-resolution: 192dpi),
+  only screen and (                min-resolution: 2dppx) {
   html, body{
     background-image: url('./img/handmadepaper_@2X.png');
   }
@@ -59,6 +67,7 @@ html, body {
   padding: 0;
   margin: 0;
   position: relative;
+  -webkit-perspective: 1000;
 }
 .cards-container > li .card-back,
 .cards-container > li .card-face {
@@ -68,6 +77,17 @@ html, body {
   right: 10px;
   bottom: 10px;
   text-align: center;
+  color: rgba(0,0,0,0.7);
+  border-width: 1px;
+  border-style: solid;
+  border-color:
+    rgba(255,255,255,0.3)
+    rgba(0,0,0,0.3)
+    rgba(0,0,0,0.3)
+    rgba(255,255,255,0.3);
+
+  text-transform: uppercase;
+  font-size: .8em;
 
   display: flex;
   flex-direction: column;
@@ -76,24 +96,26 @@ html, body {
 
   backface-visibility: hidden;
   transform: rotateY(0deg);
-  transition: transform .3s;
+  transition: transform .5s;
 
   border-radius: 5%;
-  box-shadow: 0 0 5px rgba(0,0,0,.5);
+  box-shadow: 0 0 5px rgba(0,0,0,.3);
 }
 .cards-container > li .card-back {
+  background: rgba(0,0,0,0.05);
   transform: rotateY(180deg);
 }
 .cards-container > li .card-face i {
   font-size: 2.5em;
   display: block;
+  margin-bottom: .5em;
 }
 .cards-container > li .card-back i {
   font-size: 3em;
 }
-.cards-container > li:hover .card-face {
+.cards-container > li.hidden .card-face {
   transform: rotateY(180deg);
 }
-.cards-container > li:hover .card-back {
+.cards-container > li.hidden .card-back {
   transform: rotateY(360deg);
 }
